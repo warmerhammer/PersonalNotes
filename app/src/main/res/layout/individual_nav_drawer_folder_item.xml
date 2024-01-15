@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_drawer_rv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:tag="individual_nav_drawer_item"
+    >
+
+    <ImageView
+        android:id="@+id/folder_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/folder_icon"
+        android:scaleType="centerInside"
+        android:src="@drawable/baseline_folder_24"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/folder_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:fontFamily="@font/cabin_sketch"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        tools:text="test" />
+
+</LinearLayout>

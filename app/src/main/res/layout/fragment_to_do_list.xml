@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/todo_list_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_yellow"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="15dp">
+
+    <LinearLayout
+        android:id="@+id/unchecked_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/toDoListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight=".015"
+            android:autofillHints="Enter title"
+            android:fontFamily="@font/cabin_sketch"
+            android:hint="@string/title"
+            android:inputType="text"
+            android:labelFor="@id/noteTitle"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:imeOptions="actionDone"
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1"
+            android:background="@drawable/rectangle_border_pencil_pencil_grey"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/todoList_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/todo_items"
+                android:fontFamily="@font/cabin_sketch"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/holo_red"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/todo_list_rv"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/todo_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="25dp"
+                android:layout_marginTop="15dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/todoList_text"
+                app:layout_constraintVertical_bias="0.0"
+                tools:listitem="@layout/todo_list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/add_todo_item_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight=".05"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="top"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop=".5dp"
+                android:contentDescription="@string/add_todo_item"
+                android:scaleType="fitCenter"
+                android:src="@drawable/plus_sketch" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:fontFamily="@font/cabin_sketch"
+                android:gravity="center_vertical"
+                android:text="@string/add_todo_item"
+                android:textColor="@color/pencil_black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/checked_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_yellow"
+        android:elevation="8dp"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:behavior_hideable="false"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_checked_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/checked_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/pull_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="125dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginEnd="125dp"
+                        android:background="@color/pencil_grey" />
+
+                    <TextView
+                        android:id="@+id/checked_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/pull_bar"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="25dp"
+                        android:fontFamily="@font/cabin_sketch"
+                        android:paddingTop="15dp"
+                        android:textSize="20sp"
+                        android:text="@string/checked_items"
+                        android:textColor="@color/holo_red" />
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/checkedRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/todo_list_item" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

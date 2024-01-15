@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black"
+    android:theme="@style/transparentBackground">
+
+    <TextView
+        android:id="@+id/GDriveTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:fontFamily="@font/cabin_sketch"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/pencil_black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/GDriveTextContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/GDriveTextContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:fontFamily="@font/cabin_sketch"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/pencil_black"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/GDriveTitle"
+        app:layout_constraintVertical_weight="9"
+        tools:text="note..." />
+
+    <LinearLayout
+        android:id="@+id/infoBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="#99000000"
+        android:foregroundGravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/closeInfoBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="20dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_close_24"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/loading_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/syncing_with_google_docs_file_n_syncing_with_personaldocs_app_temporary"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+
+        <ProgressBar
+            android:id="@+id/gDriveLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:indeterminateTint="@color/white"
+            android:minWidth="40dp"
+            android:minHeight="40dp" />
+
+        <LinearLayout
+            android:id="@+id/gDriveAcivityButtons1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/ClickToStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_baseline_cancel_24"
+                android:text="@string/stop_sync"
+                android:textColor="#99000000" />
+
+            <Button
+                android:id="@+id/ClickToSendLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_baseline_mark_email_read_24"
+                android:text="@string/send_link"
+                android:textColor="#99000000" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/minimizedInfoBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99000000"
+        android:foregroundGravity="bottom"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="Google Drive > 'Syncing with PersonalDocs App (temporary)'"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/ClickToStopTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:text="Stop Syncing"
+                android:textColor="#99000000"
+                android:drawableStart="@drawable/ic_baseline_cancel_24"
+                />
+
+            <Button
+                android:id="@+id/ClickToSendLinkTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_baseline_mark_email_read_24"
+                android:text="@string/send_link"
+                android:textColor="#99000000" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

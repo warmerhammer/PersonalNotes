@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">PersonalNotes</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">HomePage</string>
+    <string name="second_fragment_label">Project</string>
+
+    <string name="project_image">Project Image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_bar_menu_icon">app bar menu icon</string>
+    <string name="new_list">New List</string>
+    <string name="new_note">New Note</string>
+    <string name="new_project">New Project</string>
+    <string name="notes">Notes</string>
+    <string name="ok">Okay</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_google_sign_in">GoogleSignInActivity</string>
+
+    <string name="default_web_client_id">115507596943-1gq1fbb8mko7c7qj412qtj9gg0i8cpam.apps.googleusercontent.com</string>
+    <string name="googleicon">googleIcon</string>
+    <string name="googledocs">GoogleDocs</string>
+    <string name="menuitemicon">menuItemIcon</string>
+    <string name="no_projects">No Projects</string>
+    <string name="write_here">Write here...</string>
+    <string name="title">Title</string>
+    <string name="add_todo_item">Add Todo Item</string>
+    <string name="new_item">New Item</string>
+    <string name="delete_todo_item">delete Todo Item</string>
+    <string name="checked_items">Checked Items</string>
+    <string name="project_empty">Project Empty...</string>
+    <string name="todo_items">Todo Items</string>
+    <string name="folder_icon">Folder Icon</string>
+    <string name="add_project">Add Project</string>
+    <string name="syncing_with_google_docs_file_n_syncing_with_personaldocs_app_temporary">Syncing with Google Drive file titled > \'Syncing with PersonalDocs App (temporary)\'</string>
+    <string name="stop_sync">Stop Sync</string>
+    <string name="send_link">Send Link</string>
+    <string name="note">note</string>
+    <string name="download_to_pdf">download to pdf</string>
+    <string name="share_image_button">share image button</string>
+    <string name="move_project">move to another project</string>
+    <string name="close_menu">close menu</string>
+    <string name="more_options">more options</string>
+    <string name="selected_item_count">%1$d Selected</string>
+    <string name="delete_selected_items">delete selected items</string>
+    <string name="searchable_dialog">searchable dialog</string>
+    <string name="search_for_friends">Search for friends…</string>
+    <string name="profile_image">profile image</string>
+    <string name="test_email">test_email@test.com</string>
+    <string name="john_notes">John Notes</string>
+    <string name="search_icon">search icon</string>
+    <string name="back_icon">Back Icon</string>
+    <string name="app_icon">app icon</string>
+    <string name="last_edited">Last edited</string>
+    <string name="last_modified">updated</string>
+    <string name="add_folder">Add Folder</string>
+
+    <!-- Google Icon Spinner Options -->
+
+</resources>

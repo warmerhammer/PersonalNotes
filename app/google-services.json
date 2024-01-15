@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "115507596943",
+    "project_id": "personalnotes-f0e8a",
+    "storage_bucket": "personalnotes-f0e8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115507596943:android:b222c2d3f203ab5c562afa",
+        "android_client_info": {
+          "package_name": "com.warmerhammer.personalnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115507596943-tla06c88b7s1o9bsar10kt2nqmk3tvg1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.warmerhammer.personalnotes",
+            "certificate_hash": "376d4cc675939597588fb72158fadc71a87eb5c9"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDauSF8lHYxHrMRwVTLWJVyg6IqHd6L52k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115507596943-1gq1fbb8mko7c7qj412qtj9gg0i8cpam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

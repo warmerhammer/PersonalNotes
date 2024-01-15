@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_todo_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="25dp"
+    android:layout_marginVertical="5dp"
+    android:gravity="center_vertical"
+    android:minWidth="300dp"
+    android:minHeight="20dp"
+    android:orientation="horizontal"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/deleteTodoItemButton"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_weight=".1"
+        android:contentDescription="@string/delete_todo_item"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_cancel_24" />
+
+
+    <ImageView
+        android:id="@+id/checkboxIcon"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight=".1"
+        android:contentDescription="@string/add_todo_item"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_check_box_outline_blank_24"
+        android:tag="unchecked" />
+
+
+    <EditText
+        android:id="@+id/add_todo_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_weight=".8"
+        android:autofillHints="Enter Item"
+        android:background="@null"
+        android:fontFamily="@font/cabin_sketch"
+        android:hint="@string/new_item"
+        android:inputType="textMultiLine"
+        android:labelFor="@id/add_todo_et"
+        android:scrollHorizontally="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        tools:ignore="LabelFor" />
+
+
+</LinearLayout>

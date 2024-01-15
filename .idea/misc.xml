@@ -1,0 +1,82 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/animated_minus.xml" value="0.28888888888888886" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/animated_plus.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/basic_divider.xml" value="0.233" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/circle.xml" value="0.2255" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/circle_background.xml" value="0.5520833333333334" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/clipboard_icon_background.xml" value="0.2" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/clipboard_icon_black_background.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/drag_border.xml" value="0.5212962962962963" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/drag_border_red.xml" value="0.303125" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/fab_background.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/floating_add_button_shape.xml" value="0.4661458333333333" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/home_project_rv_box.xml" value="0.233" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.226" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_account_circle_24_black.xml" value="0.119" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2265" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_cloud_upload_24.xml" value="0.182" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2265" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2265" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_baseline_sync_24.xml" value="0.182" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/icon_layer_list.xml" value="0.2255" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/minus.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/plus.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/rectangle_border.xml" value="0.261" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/rectangle_border_pencil_pencil_grey.xml" value="0.1715" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/drawable/strikethrough.xml" value="0.1435" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/font/pencil_font.xml" value="0.5625" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout-v26/fab.xml" value="0.2869791666666667" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/activity_gdrive.xml" value="0.25" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/activity_google_sign_in.xml" value="0.26876737720111216" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/activity_search.xml" value="0.22" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/blank_note.xml" value="0.25" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/bottom_sheet.xml" value="0.43056141831996625" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/checked_layout.xml" value="0.2783240701154339" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/content_google_sign_in.xml" value="0.2830269345874305" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/content_main.xml" value="0.31614583333333335" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/custom_spinner.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/empty_menu_recyclerview.xml" value="0.2890123984608807" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fab.xml" value="0.4584426946631671" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_add_note.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_custom_spinner_dialog.xml" value="0.43693886276186406" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_individual_project.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_note.xml" value="0.29008341056533826" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_second.xml" value="0.2796875" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/fragment_to_do_list.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/g_icon_popup_menu.xml" value="0.5" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/individual_doc_item.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/individual_nav_drawer_folder_item.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/main_fragment.xml" value="0.2796875" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/material_toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/menu_grid_item.xml" value="0.8531645569620253" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/menu_list_view.xml" value="0.4314056563951034" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/nav_drawer.xml" value="0.18" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/project_item.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/searchable.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/searchable_profile_item.xml" value="0.5" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/selected_item_action_menu.xml" value="0.35032437442076" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/layout/todo_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/menu-v26/home_project_popup_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/menu/g_icon_popup_menu.xml" value="0.25301204819277107" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/menu/home_project_popup_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/menu/menu_main.xml" value="0.29375" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/menu/nav_drawer_items.xml" value="0.1" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/mipmap-anydpi-v26/clipboard_icon.xml" value="0.4166666666666667" />
+        <entry key="..\:/Users/Richard/AndroidProjects/PersonalNotes/app/src/main/res/mipmap-anydpi-v26/clipboard_icon_round.xml" value="0.39537037037037037" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

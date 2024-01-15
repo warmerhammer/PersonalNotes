@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_activity_toolbar_display"
+    android:layout_width="350dp"
+    android:layout_gravity="end"
+    android:layout_height="?android:attr/actionBarSize"
+    android:orientation="horizontal"
+    android:background="@color/black"
+    >
+
+    <TextView
+        android:id="@+id/app_bar_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/google_icon"
+        android:fontFamily="@font/cabin_sketch"
+        android:gravity="center"
+        android:text="@string/notes"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/google_icon"
+        android:layout_width="74dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="0dp"
+        android:background="@null"
+        android:contentDescription="@string/googleicon"
+        android:scaleType="fitCenter"
+        android:scaleX=".40"
+        android:scaleY=".40"
+        android:src="@drawable/ic_baseline_account_circle_24" />
+</RelativeLayout>

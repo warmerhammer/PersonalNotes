@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/project_item"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="0dp"
+    android:background="@drawable/rectangle_border_pencil_pencil_grey"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="30dp">
+
+    <ImageView
+        android:id="@+id/item_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/add_todo_item"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_check_box_outline_blank_24"
+        android:tag="unchecked"
+        android:visibility="gone"
+        app:tint="@color/black" />
+
+    <ImageView
+        android:id="@+id/folder_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/project_image"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:src="@drawable/ic_baseline_checklist_24"
+        app:tint="@color/black" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/project_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/cabin_sketch"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="2dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Project Title" />
+
+        <TextView
+            android:id="@+id/folder_icon_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/note"
+            android:textColor="@color/pencil_grey"
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_baseline_more_vert_24"
+        android:visibility="gone"
+        app:tint="@color/pencil_grey" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="2dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/last_edited"
+            android:textColor="@color/lb_grey"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/project_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_sketch"
+            android:textColor="@color/lb_grey"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            tools:text="05.29.23" />
+
+    </LinearLayout>
+
+</LinearLayout>

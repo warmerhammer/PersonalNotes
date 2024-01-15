@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/g_icon_popup_menu_constraintlayout"
+    android:layout_width="100dp"
+    android:layout_height="25dp">
+
+    <View
+        android:id="@+id/endLine"
+        android:layout_width="1dp"
+        android:layout_height="25dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view0" />
+
+    <View
+        android:id="@+id/startLine"
+        android:layout_width="1dp"
+        android:layout_height="25dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view0" />
+
+    <View
+        android:id="@+id/view0"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/menuItemTitle"
+        app:layout_constraintStart_toEndOf="@id/startLine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/iconCircularFrame"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintEnd_toStartOf="@id/menuItemTitle"
+        app:layout_constraintStart_toEndOf="@id/startLine"
+        app:layout_constraintTop_toBottomOf="@id/view0"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_weight="1"
+        >
+        <ImageView
+            android:id="@+id/menuImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/menuitemicon"
+            android:visibility="gone" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/menuItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/googledocs"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/view1"
+        app:layout_constraintEnd_toStartOf="@id/endLine"
+        app:layout_constraintStart_toEndOf="@id/iconCircularFrame"
+        app:layout_constraintTop_toBottomOf="@id/view0" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/endLine"
+        app:layout_constraintStart_toEndOf="@id/startLine"
+        app:layout_constraintTop_toBottomOf="@id/menuItemTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
