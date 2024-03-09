@@ -14,7 +14,8 @@ data class Folder (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     var name: String? = null,
-    val image: Int? = R.drawable.baseline_folder_24
+    val image: Int? = R.drawable.baseline_folder_24,
+    var timestamp: Long? = System.currentTimeMillis(),
 )
 
 @Dao

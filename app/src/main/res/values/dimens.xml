@@ -8,6 +8,7 @@
     <!-- fab linear layout dimensions -->
     <dimen name="fab_ll_width">200dp</dimen>
     <dimen name="fab_ll_height">60dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 
 </resources>

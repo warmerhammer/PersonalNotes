@@ -34,12 +34,12 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import javax.inject.Singleton
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
 import com.warmerhammer.personalnotes.CustomDialogFragment.CustomDialogFragment
 import com.warmerhammer.personalnotes.Data.DataClasses.Folder
+import com.warmerhammer.personalnotes.Data.DataClasses.MenuTitle
 import com.warmerhammer.personalnotes.Data.DataClasses.Project
+import com.warmerhammer.personalnotes.PopupWindow.PWindow
 import com.warmerhammer.personalnotes.SearchActivity.SearchActivity
-import com.warmerhammer.personalnotes.Utils.AlertDialogFragment
 
 @HiltAndroidApp
 class MainApplication : Application()
@@ -53,7 +53,7 @@ class MainActivity @Inject constructor(
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private lateinit var animatedFab: AnimatedFab
+//    private lateinit var animatedFab: AnimatedFab
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var drawerNavigation: DrawerNavigation
     private lateinit var navDrawerRV: RecyclerView
@@ -62,6 +62,7 @@ class MainActivity @Inject constructor(
     private lateinit var toolbar: Toolbar
     private lateinit var checkedSet: Set<Project>
     private lateinit var currentFolder: Folder
+    private lateinit var allFolders: List<Folder>
     private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +80,7 @@ class MainActivity @Inject constructor(
         navController = navHostFragment.navController
         setUpNavControllerWithDrawerLayout()
         // instantiate animated FAB object
-        animatedFab = AnimatedFab(this, this)
+//        animatedFab = AnimatedFab(this, this)
         // observe changes to action bar title
         observeActionBarTitle()
         // load homePage folder
@@ -104,7 +105,14 @@ class MainActivity @Inject constructor(
             }
         }
 
+        observeAllFolders()
         observeCheckedItems()
+    }
+
+    private fun observeAllFolders() {
+        viewModel.allFolders.observe(this as LifecycleOwner) {
+            allFolders = it
+        }
     }
 
     private fun observeCheckedItems() {
@@ -113,6 +121,9 @@ class MainActivity @Inject constructor(
                 when (message) {
                     "delete_selected_items" -> viewModel.deleteSelectedProjects()
                     "cancel_selected_items" -> viewModel.clearCheckedSet()
+                    "move_item" -> {
+                        navController.navigate(R.id.folderListFragment)
+                    }
                     "collab" -> {
                         val i = Intent(this, SearchActivity::class.java)
                         startActivity(i)
@@ -185,11 +196,11 @@ class MainActivity @Inject constructor(
         viewModel.actionBarTitle.observe(this as LifecycleOwner) { actionBarTitle ->
             toolbar.findViewById<TextView>(R.id.app_bar_title).text = actionBarTitle
             // disable new project button if not in home fragment
-            if (navController.currentDestination!!.label != "HomePage" && navController.currentDestination!!.label != "Project") {
-                animatedFab.hide()
-            } else {
-                animatedFab.show()
-            }
+//            if (navController.currentDestination!!.label != "HomePage" && navController.currentDestination!!.label != "Project") {
+//                animatedFab.hide()
+//            } else {
+////                animatedFab.show()
+//            }
         }
     }
 
@@ -237,27 +248,27 @@ class MainActivity @Inject constructor(
 
     // New Note
     override fun onFabAction1Clicked() {
-        if (animatedFab.expanded) {
-            val bundle = Bundle()
-            bundle.putLong("id", -1)
-            bundle.putLong("folderId", currentFolder.id)
-            animatedFab.hide()
-
-            navController.navigate(R.id.toNoteFragment, bundle)
-        }
+//        if (animatedFab.expanded) {
+//            val bundle = Bundle()
+//            bundle.putLong("id", -1)
+//            bundle.putLong("folderId", currentFolder.id)
+//            animatedFab.hide()
+//
+//            navController.navigate(R.id.toNoteFragment, bundle)
+//        }
     }
 
     // New TodoList
     override fun onFabAction2Clicked() {
-        if (animatedFab.expanded) {
-            val bundle = Bundle()
-            bundle.putLong("id", -1)
-            Log.d(TAG, "currentFolder.name :: ${currentFolder.name}")
-            bundle.putLong("folderId", currentFolder.id)
-            animatedFab.hide()
-
-            navController.navigate(R.id.toToDoListFragment, bundle)
-        }
+//        if (animatedFab.expanded) {
+//            val bundle = Bundle()
+//            bundle.putLong("id", -1)
+//            Log.d(TAG, "currentFolder.name :: ${currentFolder.name}")
+//            bundle.putLong("folderId", currentFolder.id)
+//            animatedFab.hide()
+//
+//            navController.navigate(R.id.toToDoListFragment, bundle)
+//        }
 
     }
 

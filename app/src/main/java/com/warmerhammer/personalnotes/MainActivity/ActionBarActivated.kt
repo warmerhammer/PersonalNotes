@@ -75,14 +75,21 @@ class ActionBarActivated @Inject constructor(
         val layoutManager = LinearLayoutManager(appCompatActivity)
         menuRV.layoutManager = layoutManager
 
-        adapter = PWindow(appCompatActivity) {
-            Log.i("ActionBarActivated.kt", "Menu Item Clicked")
+        adapter = PWindow(appCompatActivity) {menuTitle ->
+            when (menuTitle) {
+                "Move Item(s)" -> {
+                    transitionToInactive()
+                    clickListener("move_item")
+                }
+            }
+
+            popup.dismiss()
         }
         menuRV.adapter = adapter
 
         val listOfActionItems = listOf(
             MenuTitle(
-                "Move Item",
+                "Move Item(s)",
                 null
             )
         )

@@ -78,6 +78,9 @@ class MainActivityViewModel @Inject constructor(
         _currentFolder.value = folder
     }
 
+    fun moveItem() {
+        //todo
+    }
 
 //    fun observeUser() {
 //        viewModelScope.launch(ioDispatcher) {

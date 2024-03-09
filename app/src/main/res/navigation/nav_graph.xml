@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/DocsListFragment">
-
+    <!--    Doc List Fragment-->
     <fragment
         android:id="@+id/DocsListFragment"
         android:name="com.warmerhammer.personalnotes.DocsListFragment.DocsListFragment"
@@ -17,6 +17,7 @@
             android:id="@+id/toToDoListFragment"
             app:destination="@id/toDoListFragment" />
     </fragment>
+    <!--    <note fragment-->
     <fragment
         android:id="@+id/noteFragment"
         android:label="NoteFragment"
@@ -29,6 +30,7 @@
             android:name="folderId"
             app:argType="long" />
     </fragment>
+    <!--    // TodoList Fragment-->
     <fragment
         android:id="@+id/toDoListFragment"
         android:name="com.warmerhammer.personalnotes.ToDoListFragment.ToDoListFragment"
@@ -43,5 +45,10 @@
             app:argType="long" />
 
     </fragment>
+    <fragment
+        android:id="@+id/folderListFragment"
+        android:name="com.warmerhammer.personalnotes.FolderListFragment.FolderListFragment"
+        android:label="FolderListFragment"
+        tools:layout="@layout/fragment_folder_list" />
 
 </navigation>

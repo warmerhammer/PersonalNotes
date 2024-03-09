@@ -53,7 +53,21 @@
     <string name="last_edited">Last edited</string>
     <string name="last_modified">updated</string>
     <string name="add_folder">Add Folder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="folder">folder</string>
 
-    <!-- Google Icon Spinner Options -->
+
+<!--    Bottom Navigation Menu-->
+    <string name="bottom_navigation_menu_home">bottom navigation menu home</string>
+    <string name="bottom_navigation_menu_files">bottom navigation menu files</string>
+    <string name="bottom_navigation_menu_shared">shared</string>
+    <string name="bottom_navigation_menu_add">create</string>
+    <string name="bottom_navigation_menu_me">me</string>
+    <string name="home">home</string>
+    <string name="folders">folders</string>
+    <string name="bottom_navigation_bar">bottom navigation bar</string>
+    <string name="recent_documents">Recent documents</string>
+
 
 </resources>

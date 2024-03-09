@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "31666a1b3009386e90d84119393e1942",
+    "identityHash": "a414cb83645c2823ce5075fadfad2c7f",
     "entities": [
       {
         "tableName": "Note",
@@ -106,7 +106,7 @@
       },
       {
         "tableName": "Folder",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `image` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `image` INTEGER, `timestamp` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -123,6 +123,12 @@
           {
             "fieldPath": "image",
             "columnName": "image",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
             "affinity": "INTEGER",
             "notNull": false
           }
@@ -240,7 +246,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '31666a1b3009386e90d84119393e1942')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a414cb83645c2823ce5075fadfad2c7f')"
     ]
   }
 }

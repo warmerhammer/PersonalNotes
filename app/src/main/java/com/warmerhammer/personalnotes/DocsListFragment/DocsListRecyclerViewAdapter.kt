@@ -31,8 +31,6 @@ class DocsListRecyclerViewAdapter @Inject constructor(
 ) : ListAdapter<Any, DocsListRecyclerViewAdapter.ViewHolder>(
     DiffCallback()
 ) {
-
-
     private class DiffCallback : DiffUtil.ItemCallback<Any>() {
         override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean {
             return (oldItem as Project) == (newItem as Project)
@@ -110,7 +108,8 @@ class DocsListRecyclerViewAdapter @Inject constructor(
                     true
                 } else {
                     holder.itemCheckbox.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24)
-                    holder.projectItem.setBackgroundColor(normalColor)
+                    holder.projectItem.setBackgroundResource(R.drawable.rectangle_border_pencil_pencil_grey)
+//                    holder.projectItem.setBackgroundColor(normalColor)
                     false
                 }
 
@@ -118,7 +117,8 @@ class DocsListRecyclerViewAdapter @Inject constructor(
                     when (checked) {
                         true -> {
                             holder.itemCheckbox.setImageResource(R.drawable.ic_baseline_check_box_outline_blank_24)
-                            holder.projectItem.setBackgroundColor(normalColor)
+                            holder.projectItem.setBackgroundResource(R.drawable.rectangle_border_pencil_pencil_grey)
+//                            holder.projectItem.setBackgroundColor(normalColor)
                             checked = false
                             viewModel.removeCheck(project)
                         }
@@ -134,7 +134,8 @@ class DocsListRecyclerViewAdapter @Inject constructor(
             } else {
                 holder.itemCheckbox.visibility = View.GONE
                 holder.projectImage.visibility = View.VISIBLE
-                holder.projectItem.setBackgroundColor(normalColor)
+//                holder.projectItem.setBackgroundColor(normalColor)
+                holder.projectItem.setBackgroundResource(R.drawable.rectangle_border_pencil_pencil_grey)
                 // set appropriate click listeners
                 holder.projectItem.setOnClickListener {
                     clickListener("Detail fragment", project, idx)
