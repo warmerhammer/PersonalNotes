@@ -34,11 +34,10 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import javax.inject.Singleton
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.warmerhammer.personalnotes.CustomDialogFragment.CustomDialogFragment
 import com.warmerhammer.personalnotes.Data.DataClasses.Folder
-import com.warmerhammer.personalnotes.Data.DataClasses.MenuTitle
 import com.warmerhammer.personalnotes.Data.DataClasses.Project
-import com.warmerhammer.personalnotes.PopupWindow.PWindow
 import com.warmerhammer.personalnotes.SearchActivity.SearchActivity
 
 @HiltAndroidApp
@@ -53,7 +52,8 @@ class MainActivity @Inject constructor(
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-//    private lateinit var animatedFab: AnimatedFab
+
+    private lateinit var animatedFab: AnimatedFab
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var drawerNavigation: DrawerNavigation
     private lateinit var navDrawerRV: RecyclerView
@@ -80,7 +80,7 @@ class MainActivity @Inject constructor(
         navController = navHostFragment.navController
         setUpNavControllerWithDrawerLayout()
         // instantiate animated FAB object
-//        animatedFab = AnimatedFab(this, this)
+        animatedFab = AnimatedFab(this, this)
         // observe changes to action bar title
         observeActionBarTitle()
         // load homePage folder
@@ -107,6 +107,26 @@ class MainActivity @Inject constructor(
 
         observeAllFolders()
         observeCheckedItems()
+
+        // bottom nav bar
+        binding.mainActivityAppContainer
+            .findViewById<BottomNavigationView>(R.id.bottom_nav)
+            .setOnItemSelectedListener {
+                when (it.title) {
+                    "home" -> {
+                        Log.i(TAG, "${it.title}")
+                        navController.navigate(R.id.homeScreenFragment)
+                        true
+                    }
+                    "folders" -> {
+                        true
+                    }
+
+                    else -> {
+                        false
+                    }
+                }
+            }
     }
 
     private fun observeAllFolders() {
@@ -124,6 +144,7 @@ class MainActivity @Inject constructor(
                     "move_item" -> {
                         navController.navigate(R.id.folderListFragment)
                     }
+
                     "collab" -> {
                         val i = Intent(this, SearchActivity::class.java)
                         startActivity(i)
@@ -248,27 +269,27 @@ class MainActivity @Inject constructor(
 
     // New Note
     override fun onFabAction1Clicked() {
-//        if (animatedFab.expanded) {
-//            val bundle = Bundle()
-//            bundle.putLong("id", -1)
-//            bundle.putLong("folderId", currentFolder.id)
-//            animatedFab.hide()
-//
-//            navController.navigate(R.id.toNoteFragment, bundle)
-//        }
+        if (animatedFab.expanded) {
+            val bundle = Bundle()
+            bundle.putLong("id", -1)
+            bundle.putLong("folderId", currentFolder.id)
+            animatedFab.hide()
+
+            navController.navigate(R.id.toNoteFragment, bundle)
+        }
     }
 
     // New TodoList
     override fun onFabAction2Clicked() {
-//        if (animatedFab.expanded) {
-//            val bundle = Bundle()
-//            bundle.putLong("id", -1)
-//            Log.d(TAG, "currentFolder.name :: ${currentFolder.name}")
-//            bundle.putLong("folderId", currentFolder.id)
-//            animatedFab.hide()
-//
-//            navController.navigate(R.id.toToDoListFragment, bundle)
-//        }
+        if (animatedFab.expanded) {
+            val bundle = Bundle()
+            bundle.putLong("id", -1)
+            Log.d(TAG, "currentFolder.name :: ${currentFolder.name}")
+            bundle.putLong("folderId", currentFolder.id)
+            animatedFab.hide()
+
+            navController.navigate(R.id.toToDoListFragment, bundle)
+        }
 
     }
 
