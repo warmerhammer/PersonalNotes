@@ -16,12 +16,15 @@
         <action
             android:id="@+id/toToDoListFragment"
             app:destination="@id/toDoListFragment" />
+        <action
+            android:id="@+id/toHomeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
     </fragment>
     <!--    <note fragment-->
     <fragment
         android:id="@+id/noteFragment"
-        android:label="NoteFragment"
         android:name="com.warmerhammer.personalnotes.NoteFragment.NoteFragment"
+        android:label="NoteFragment"
         tools:layout="@layout/fragment_add_note">
         <argument
             android:name="id"
@@ -45,10 +48,17 @@
             app:argType="long" />
 
     </fragment>
+    <!--    // Folder List Fragment-->
     <fragment
         android:id="@+id/folderListFragment"
         android:name="com.warmerhammer.personalnotes.FolderListFragment.FolderListFragment"
         android:label="FolderListFragment"
         tools:layout="@layout/fragment_folder_list" />
+    <!--    // Home Screen Fragment-->
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.warmerhammer.personalnotes.homescreen.HomeScreenFragment"
+        android:label="HomeScreenFragment"
+        tools:layout="@layout/home_screen_fragment"/>
 
 </navigation>

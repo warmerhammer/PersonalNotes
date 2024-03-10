@@ -1,17 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    >
+    android:layout_height="40dp">
+
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/empty_object"
+        android:foregroundGravity="left"
         android:src="@drawable/baseline_folder_24"
-        android:contentDescription="@string/folder_icon" />
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toStartOf="@id/doc_title"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="9.9" />
+
+
+    <TextView
+        android:id="@+id/doc_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/cabin_sketch"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/memory_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="5.9"
+        tools:text="doc_title" />
+
+    <TextView
+        android:id="@+id/memory_size"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/cabin_sketch"
+        android:textAlignment="textStart"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toStartOf="@id/date"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="@id/doc_title"
+        app:layout_constraintTop_toBottomOf="@id/doc_title"
+        app:layout_constraintVertical_weight="4"
+        tools:text="memory_size" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/cabin_sketch"
+        android:textAlignment="textStart"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="@id/doc_title"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@id/memory_size"
+        app:layout_constraintTop_toBottomOf="@id/doc_title"
+        app:layout_constraintVertical_weight="4"
+        tools:text="date" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        app:layout_constraintVertical_weight=".1"
+        android:background="@color/light_grey"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
