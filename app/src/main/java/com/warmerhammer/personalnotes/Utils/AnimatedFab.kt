@@ -9,10 +9,14 @@ import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Context
 import android.graphics.drawable.Animatable
+import android.nfc.Tag
 import android.os.Build
+import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.view.marginRight
 import com.warmerhammer.personalnotes.R
@@ -30,14 +34,14 @@ open class AnimatedFab(
         fun onFabAction3Clicked()
     }
 
-
     // declares the item being used when onDragEvent() is called
     private lateinit var item: ClipData.Item
-    private var fab: FrameLayout = activity.findViewById(R.id.fab_frame)
-    private var fabButton: ImageButton = activity.findViewById(R.id.fab)
+    private var fab: FrameLayout = activity.findViewById(R.id.main_fab_button)
+    private var fabButton: ImageButton = activity.findViewById(R.id.fab_button)
     private var fabAction1: View = activity.findViewById(R.id.fab_action_1_ll)
     private var fabAction2: View
     private var fabAction3: View
+    private var newNoteMessage: View = activity.findViewById(R.id.new_note_message)
     private var enableButton3 = false
 
     // item hint text
@@ -55,10 +59,9 @@ open class AnimatedFab(
     // instantiate listener
     private var listener = context as FabActionListener
     private var dragListener = context as DragListener
-    private val animationDuration = 350L
+    private val animationDuration = 500L
 
     var expanded = false
-
 
     init {
         // setup Action 1
@@ -89,31 +92,30 @@ open class AnimatedFab(
             }
         }
 
-
-        fabButton.setOnLongClickListener { v ->
-            // initializes item
-            item = ClipData.Item(v.tag as? CharSequence)
-
-            val dragData = ClipData(
-                v.tag as? CharSequence,
-                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
-                item
-            )
-
-            val myShadow = DragShadowBuilder(fabContainer)
-
-
-            dragListener.startFabDrag(dragData, myShadow, fabContainer)
-
-            true
-
-//            fabContainer.startDragAndDrop(
-//                dragData,
-//                myShadow,
-//                fabContainer,
-//                0
+//        fabButton.setOnLongClickListener { v ->
+//            // initializes item
+//            item = ClipData.Item(v.tag as? CharSequence)
+//
+//            val dragData = ClipData(
+//                v.tag as? CharSequence,
+//                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+//                item
 //            )
-        }
+//
+//            val myShadow = DragShadowBuilder(fabContainer)
+//
+//
+//            dragListener.startFabDrag(dragData, myShadow, fabContainer)
+//
+//            true
+//
+////            fabContainer.startDragAndDrop(
+////                dragData,
+////                myShadow,
+////                fabContainer,
+////                0
+////            )
+//        }
 
         fabContainer.viewTreeObserver.addOnPreDrawListener(object :
             ViewTreeObserver.OnPreDrawListener {
@@ -153,15 +155,16 @@ open class AnimatedFab(
         animatorSet = AnimatorSet().apply {
             createCollapseAnimator(fabAction1, offset1!!)
             createCollapseAnimator(fabAction2, offset2!!)
-            createCollapseAnimator(fabAction3, offset3!!)
+//            createCollapseAnimator(fabAction3, offset3!!)
             unrotateX()
             // fade item hints
             fadeInstructionView(fabAction1TextView)
             fadeInstructionView(fabAction2TextView)
-            fadeInstructionView(fabAction3TextView)
+//            fadeInstructionView(fabAction3TextView)
+            showNewNoteMessage(newNoteMessage)
 
         }
-        animateFab()
+        /*animateFab()*/
     }
 
     private fun expandFab() {
@@ -169,14 +172,27 @@ open class AnimatedFab(
             rotateX()
             createExpandAnimator(fabAction1, offset1!!)
             createExpandAnimator(fabAction2, offset2!!)
-            createExpandAnimator(fabAction3, offset3!!)
+//            createExpandAnimator(fabAction3, offset3!!)
             // fade in hints
             showInstructionView(fabAction1TextView)
             showInstructionView(fabAction2TextView)
-            showInstructionView(fabAction3TextView)
-
+//            showInstructionView(fabAction3TextView)
+            fadeNewNoteMessage(newNoteMessage)
         }
-        animateFab()
+        animatorSet.start()
+
+
+        /* rotateX()
+         showInstructionView(fabAction1)
+         showInstructionView(fabAction2)
+         showInstructionView(fabAction3)
+         // fade in hints
+         showInstructionView(fabAction1TextView)
+         showInstructionView(fabAction2TextView)
+         showInstructionView(fabAction3TextView)
+         fadeNewNoteMessage(newNoteMessage)*/
+
+
     }
 
     private fun rotateX(): Animator {
@@ -193,14 +209,24 @@ open class AnimatedFab(
         }
     }
 
-    private fun createCollapseAnimator(view: View, offset: Float): Animator {
-        return ObjectAnimator.ofFloat(view, "translationY", 0f, offset).apply {
+    private fun createCollapseAnimator(view: View, offset: Float) {
+        view.animate().translationYBy(offset).setDuration(600).start()
+//        return ObjectAnimator.ofFloat(view, "translationY", 0f, offset).apply {
+//            duration = animationDuration
+//            start()
+//        }
+    }
+
+    private fun createExpandAnimator(view: View, offset: Float): Animator {
+        view.visibility = View.VISIBLE
+        return ObjectAnimator.ofFloat(view, "translationY", offset, 0f).apply {
             duration = animationDuration
             start()
         }
     }
 
     private fun showInstructionView(view: View): Animator {
+        view.visibility = View.VISIBLE
         return ObjectAnimator.ofFloat(view, "alpha", 1f).apply {
             duration = 750L
             start()
@@ -214,14 +240,22 @@ open class AnimatedFab(
         }
     }
 
-    private fun createExpandAnimator(view: View, offset: Float): Animator {
-        return ObjectAnimator.ofFloat(view, "translationY", offset, 0f).apply {
-            duration = animationDuration
+    private fun fadeNewNoteMessage(view: View): Animator {
+        return ObjectAnimator.ofFloat(view, "alpha", 0f).apply {
+            duration = 300L
             start()
         }
     }
 
-    @SuppressLint("Recycle")
+    private fun showNewNoteMessage(view: View): Animator {
+        return ObjectAnimator.ofFloat(view, "alpha", 1f).apply {
+            duration = 300L
+            start()
+        }
+    }
+
+
+   /* @SuppressLint("Recycle")
     private fun animateFab() {
         val drawable = fabButton.drawable
         if (drawable is Animatable) {
@@ -233,7 +267,7 @@ open class AnimatedFab(
         fabAction3.visibility = if (enableButton3) View.VISIBLE else View.INVISIBLE
         fabAction1.visibility = View.VISIBLE
         fabAction2.visibility = View.VISIBLE
-    }
+    }*/
 
     private fun fabAction1(view: View) {
         listener.onFabAction1Clicked()

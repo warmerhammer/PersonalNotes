@@ -1,11 +1,14 @@
 package com.warmerhammer.personalnotes.DocsListFragment
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -18,6 +21,7 @@ import com.warmerhammer.personalnotes.Data.DataClasses.Project
 import com.warmerhammer.personalnotes.Data.DataClasses.TodoList
 import com.warmerhammer.personalnotes.MainActivity.MainActivityViewModel
 import com.warmerhammer.personalnotes.R
+import com.warmerhammer.personalnotes.Utils.AnimatedFab
 import com.warmerhammer.personalnotes.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
@@ -44,9 +48,10 @@ class DocsListFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // retrieve folder before initialization
         mainViewModel.currentFolder.observe(this as LifecycleOwner) {
-            mainViewModel.actionBarTitle.postValue(it.name)
+            mainViewModel.actionBarTitle.postValue("Folder: ${it.name}")
             currentFolderId = it.id
             initRVAdapter()
             observeProjects()
@@ -116,17 +121,21 @@ class DocsListFragment @Inject constructor() : Fragment() {
             docsListViewModel.getDocsByFolderId(it)
             docsListViewModel.homePageDocs.observe(this as LifecycleOwner) { homePageDocs ->
                 Log.d(TAG, "observeProjects: homePageDocs :: ${homePageDocs.size}")
-                val loader = requireView().findViewById<ProgressBar>(R.id.loader)
-                val message = requireView().findViewById<TextView>(R.id.homepage_message_tv)
                 val rv = requireView().findViewById<RecyclerView>(R.id.project_list_recycler_view)
-                loader.visibility = View.GONE
+
                 if (homePageDocs.isNotEmpty()) {
+                    requireActivity().findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+
+                    requireActivity().findViewById<LinearLayout>(R.id.new_note_message).visibility =
+                        View.GONE
                     rv.visibility = View.VISIBLE
-                    message.visibility = View.GONE
+                    requireActivity().findViewById<FrameLayout>(R.id.main_fab_button).setBackgroundResource(R.drawable.fab_background)
                     adapter.submitList(homePageDocs.toList())
                 } else {
-                    message.visibility = View.VISIBLE
                     rv.visibility = View.GONE
+                    requireActivity().findViewById<LinearLayout>(R.id.new_note_message).visibility =
+                        View.VISIBLE
+                    requireActivity().findViewById<FrameLayout>(R.id.main_fab_button).setBackgroundResource(R.drawable.fab_background_highlighted)
                 }
             }
         }

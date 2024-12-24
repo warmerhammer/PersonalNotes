@@ -4,8 +4,6 @@ import androidx.lifecycle.*
 import com.warmerhammer.personalnotes.Data.*
 import com.warmerhammer.personalnotes.Data.DataClasses.Folder
 import com.warmerhammer.personalnotes.Data.DataClasses.Project
-import com.warmerhammer.personalnotes.Data.DataClasses.TodoList
-import com.warmerhammer.personalnotes.Data.DataClasses.TodoListItem
 import com.warmerhammer.personalnotes.Data.DataClasses.User
 import com.warmerhammer.personalnotes.DefaultDispatcher
 import com.warmerhammer.personalnotes.IoDispatcher
@@ -41,6 +39,9 @@ class MainActivityViewModel @Inject constructor(
 
     private val _itemsToDelete = MutableLiveData<Set<Project>>(setOf())
     val itemsToDelete: LiveData<Set<Project>> = _itemsToDelete
+
+    private val _currentDoc = MutableLiveData<Project>()
+    val currentDoc: LiveData<Project> = _currentDoc
 
     // functions for checking items to delete in HomePage RecyclerView
     fun markChecked(project: Project) {

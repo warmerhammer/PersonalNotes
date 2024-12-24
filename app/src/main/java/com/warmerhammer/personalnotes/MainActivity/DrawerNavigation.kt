@@ -1,6 +1,7 @@
 package com.warmerhammer.personalnotes.MainActivity
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.drawerlayout.widget.DrawerLayout
@@ -34,6 +35,7 @@ class DrawerNavigation(
         // Retrieves and observes all folders
         viewModel.getAllFolders()
         viewModel.allFolders.observe(context as LifecycleOwner) { folderList ->
+            Log.i(TAG, "folderLIST : $folderList")
             folders = folderList
             adapter.submitList(folderList)
         }

@@ -11,6 +11,8 @@
     <color name="pencil_grey">#8e97a8</color>
     <color name="pencil_black">#565656</color>
 
-    <color name="app_yellow">#fdfcd8</color>
+    <color name="app_yellow">#FFFF79</color>
     <color name="holo_red">#CC0000</color>
+    <color name="secondary_yellow">#FFFF92</color>
+    <color name="paper_mache_beige">#F0F0E3</color>
 </resources>

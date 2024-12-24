@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="?actionBarSize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/friends_cl"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/pencil_grey_border_white_background"
+        app:layout_constraintVertical_weight="1.5"
+        >
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/search_icon"
+            android:src="@drawable/baseline_search_24"
+            app:tint="@color/pencil_grey" />
+
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:contentDescription="@string/app_icon"
+            android:src="@mipmap/clipboard_icon" />
+
+        <TextView
+            android:id="@+id/search_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:textColor="@color/pencil_black"
+            android:text="@string/search_for_friends"
+            android:gravity="center_vertical"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/friends_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="30dp"
+        app:layout_constraintBottom_toTopOf="@id/shared_files_cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintVertical_weight="8"
+        >
+
+        <TextView
+            android:id="@+id/friends_rv_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:gravity="center_vertical"
+            android:text="@string/shared_documents"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/friends_rv_frame"
+            app:layout_constraintEnd_toStartOf="@id/see_all_friends_button"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/see_all_friends_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/see_all"
+            android:textAlignment="textEnd"
+            android:textColor="#0000FF"
+            app:layout_constraintBottom_toTopOf="@id/friends_rv_frame"
+            app:layout_constraintEnd_toEndOf="@id/friends_rv_frame"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@id/friends_rv_title"
+            app:layout_constraintTop_toTopOf="@id/friends_rv_title" />
+
+        <FrameLayout
+            android:id="@+id/friends_rv_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/friends_rv_title"
+            app:layout_constraintVertical_weight="4">
+
+            <TextView
+                android:id="@+id/no_friends_message"
+                android:paddingHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/rectangle_border_pencil_pencil_grey"
+                android:visibility="visible"
+                app:layout_constraintVertical_weight="4"
+                android:fontFamily="@font/cabin_sketch"
+                android:textColor="@color/black"
+                android:text="@string/there_are_currently_no_friends" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friends_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recent_documents_rv_item" />
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shared_files_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/friends_cl"
+        app:layout_constraintVertical_weight="7">
+
+        <TextView
+            android:id="@+id/shared_files_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:gravity="center_vertical"
+            android:text="@string/friends"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/shared_files_rv_frame"
+            app:layout_constraintEnd_toStartOf="@id/see_all_docs_button"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/see_all_docs_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/see_all"
+            android:textAlignment="textEnd"
+            android:textColor="#0000FF"
+            app:layout_constraintBottom_toTopOf="@id/shared_files_rv_frame"
+            app:layout_constraintEnd_toEndOf="@id/shared_files_rv_frame"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@id/shared_files_title"
+            app:layout_constraintTop_toTopOf="@id/shared_files_title" />
+
+        <FrameLayout
+            android:id="@+id/shared_files_rv_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shared_files_title"
+            app:layout_constraintVertical_weight="4">
+
+            <TextView
+                android:id="@+id/no_shared_files_message"
+                android:paddingHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/rectangle_border_pencil_pencil_grey"
+                android:visibility="visible"
+                app:layout_constraintVertical_weight="4"
+                android:fontFamily="@font/cabin_sketch"
+                android:textColor="@color/black"
+                android:text="@string/there_are_currently_no_shared_files" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shared_files_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recent_documents_rv_item" />
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

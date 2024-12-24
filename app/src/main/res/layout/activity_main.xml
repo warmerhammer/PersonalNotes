@@ -8,50 +8,47 @@
     android:tag="main_activity"
     tools:context=".MainActivity.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/actionBar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:theme="@style/Theme.PersonalNotes.AppBarOverlay">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            style="@style/Theme.PersonalNotes.PersonalNotesCustomToolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/actionBar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:theme="@style/ThemeOverlay_Toolbar"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:theme="@style/Theme.PersonalNotes.AppBarOverlay">
 
-            <include
-                android:id="@+id/main_activity_tool_bar_container"
-                layout="@layout/material_toolbar"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/Theme.PersonalNotes.PersonalNotesCustomToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                android:visibility="visible" />
+                android:theme="@style/ThemeOverlay_Toolbar"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-        </com.google.android.material.appbar.MaterialToolbar>
+                <include
+                    android:id="@+id/main_activity_tool_bar_container"
+                    layout="@layout/material_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:visibility="visible" />
+
+            </com.google.android.material.appbar.MaterialToolbar>
 
 
-    </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+    <include
+        layout="@layout/nav_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_nav"
+        android:contentDescription="@string/app_bar_menu_icon" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/pencil_grey"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/bottom_navigation_menu" />
-
-    <include
-        layout="@layout/nav_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/actionBar"
-        android:contentDescription="@string/app_bar_menu_icon" />
-
-    <include
-        layout="@layout/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 
 </RelativeLayout>

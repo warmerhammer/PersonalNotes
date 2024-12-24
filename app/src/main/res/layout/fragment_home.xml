@@ -5,34 +5,24 @@
     android:id="@+id/fragmentHomeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_marginTop="?actionBarSize"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <ProgressBar
         android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:minWidth="40dp"
-        android:minHeight="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/homepage_message_tv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/no_projects"
-        android:visibility="gone" />
+        android:minHeight="40dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/project_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:context=".DocsListFragment.HomeProjectFragment"
         tools:listitem="@layout/project_item" />

@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.leanback.widget.DiffCallback
 import androidx.recyclerview.widget.DiffUtil
@@ -33,6 +34,7 @@ class RecentDocsRVAdapter @Inject constructor() :
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var docIcon: ImageView = view.findViewById(R.id.icon)
         var docTitle: TextView = view.findViewById(R.id.doc_title)
         var memorySize: TextView = view.findViewById(R.id.memory_size)
         var modifiedDate: TextView = view.findViewById(R.id.date)
@@ -53,6 +55,7 @@ class RecentDocsRVAdapter @Inject constructor() :
         val dateFormat = "MM.dd.yy"
         val formatter = SimpleDateFormat(dateFormat, Locale.getDefault())
 
+        holder.docIcon.setImageResource(doc.image!!)
         holder.docTitle.text = doc.title
         holder.modifiedDate.text = formatter.format(doc.timestamp ?: System.currentTimeMillis())
         holder.memorySize.text = "680 KB"
