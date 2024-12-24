@@ -81,7 +81,6 @@ class DocsListRecyclerViewAdapter @Inject constructor(
     ) {
         val project = currentList[idx] as Project
         val highlightColor = Color.CYAN
-        val normalColor = ContextCompat.getColor(activity.requireContext(), R.color.app_yellow)
         val dateFormat = "MM.dd.yy"
         val formatter = SimpleDateFormat(dateFormat, Locale.getDefault())
         var checked = false

@@ -1,15 +1,22 @@
 package com.warmerhammer.personalnotes.MainActivity
 
+import android.animation.ObjectAnimator
 import android.content.Context
+import android.opengl.Visibility
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide.init
 import com.warmerhammer.personalnotes.Data.DataClasses.Folder
 import com.warmerhammer.personalnotes.R
 
@@ -31,15 +38,43 @@ class DrawerNavigationRVAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var folderTitle: TextView = view.findViewById(R.id.folder_title)
-        var folderIcon: ImageView = view.findViewById(R.id.folder_icon)
-        var layout : LinearLayout = view.findViewById(R.id.nav_drawer_rv)
+        var layout: ConstraintLayout = view.findViewById(R.id.nav_drawer_rv_item)
+        private var toggleButton: ImageButton = view.findViewById(R.id.folder_toggle)
+        private var folderIcon: ImageView = view.findViewById(R.id.folder_icon)
+        private var docsRV : RecyclerView = view.findViewById(R.id.nav_drawer_docs_RV)
 
         init {
-            view.setOnClickListener {
+            folderIcon.setOnClickListener {
                 onClick(bindingAdapterPosition)
             }
 
+            folderTitle.setOnClickListener {
+                onClick(bindingAdapterPosition)
+            }
             view.setOnDragListener(DrawerNavigationDragListener(context))
+
+            var folded = true
+            toggleButton.setOnClickListener {
+                if (folded) {
+                    ObjectAnimator.ofFloat(it, "rotation", 0f, 90f).apply {
+                        duration = 300
+                        start()
+                    }
+
+                    docsRV.visibility = View.VISIBLE
+
+                    folded = false
+                } else {
+                    ObjectAnimator.ofFloat(it, "rotation", 0f).apply {
+                        duration = 300
+                        start()
+                    }
+                    docsRV.visibility = View.GONE
+
+                    folded = true
+                }
+
+            }
         }
     }
 
@@ -56,7 +91,6 @@ class DrawerNavigationRVAdapter(
         val project = currentList[position] as Folder
         holder.folderTitle.text = project.name
         holder.layout.tag = project.id
-
     }
 
     fun getDragInstance(ctxt: Context): DrawerNavigationDragListener {

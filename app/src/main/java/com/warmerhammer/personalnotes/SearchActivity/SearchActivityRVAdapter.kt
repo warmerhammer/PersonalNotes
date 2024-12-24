@@ -1,5 +1,7 @@
 package com.warmerhammer.personalnotes.SearchActivity
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,20 +10,24 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.warmerhammer.personalnotes.Data.DataClasses.User
 import com.warmerhammer.personalnotes.R
 import kotlinx.coroutines.NonDisposableHandle.parent
 
-class SearchActivityRVAdapter : ListAdapter<Any, SearchActivityRVAdapter.ViewHolder>(
+class SearchActivityRVAdapter(
+    private val context: Context
+) : ListAdapter<User, SearchActivityRVAdapter.ViewHolder>(
     DiffCallback()
 ) {
 
-    private class DiffCallback: DiffUtil.ItemCallback<Any>() {
-        override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean {
+    private class DiffCallback : DiffUtil.ItemCallback<User>() {
+        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Any, newItem: Any): Boolean {
-            return oldItem as String == newItem as String
+        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+            return oldItem.id == newItem.id
         }
     }
 
@@ -38,8 +44,9 @@ class SearchActivityRVAdapter : ListAdapter<Any, SearchActivityRVAdapter.ViewHol
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val searchResult = currentList[position] as String
-        holder.profileName.text = searchResult
+        val user = currentList[position]
+        Glide.with(context).load(user.photoUrl)
+            .error(R.drawable.ic_baseline_account_circle_24_black).into(holder.profilePhoto)
+        holder.profileName.text = user.name
     }
-
 }

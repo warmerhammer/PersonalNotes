@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.PersonalNotes.BottomNavBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/cabin_sketch</item>
+        <item name="android:colorPrimary">@color/white</item>
+        <item name="android:iconTint">@color/white</item>
+    </style>
+</resources>

@@ -2,7 +2,7 @@
     <string name="app_name">PersonalNotes</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">HomePage</string>
+    <string name="first_fragment_label">DocsListFragment</string>
     <string name="second_fragment_label">Project</string>
 
     <string name="project_image">Project Image</string>
@@ -20,7 +20,7 @@
     <string name="googleicon">googleIcon</string>
     <string name="googledocs">GoogleDocs</string>
     <string name="menuitemicon">menuItemIcon</string>
-    <string name="no_projects">No Projects</string>
+    <string name="no_projects" formatted="true">Click Here to Create a New Note</string>
     <string name="write_here">Write here...</string>
     <string name="title">Title</string>
     <string name="add_todo_item">Add Todo Item</string>
@@ -52,13 +52,13 @@
     <string name="app_icon">app icon</string>
     <string name="last_edited">Last edited</string>
     <string name="last_modified">updated</string>
-    <string name="add_folder">Add Folder</string>
+    <string name="add_folder"> + Add New Folder</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="folder">folder</string>
 
 
-<!--    Bottom Navigation Menu-->
+    <!--    Bottom Navigation Menu-->
     <string name="bottom_navigation_menu_home">bottom navigation menu home</string>
     <string name="bottom_navigation_menu_files">bottom navigation menu files</string>
     <string name="bottom_navigation_menu_shared">shared</string>
@@ -67,9 +67,25 @@
     <string name="home">home</string>
     <string name="folders">folders</string>
     <string name="bottom_navigation_bar">bottom navigation bar</string>
-    <string name="recent_documents">Recent documents</string>
+    <string name="recent_documents">Recent files</string>
     <string name="empty_object">empty object</string>
     <string name="see_all">See all</string>
+    <string name="action_button">action button</string>
+    <string name="memory_used">Memory Used</string>
+    <string name="shared_files">Shared files</string>
+    <string name="no_shared_files">No Shared Files</string>
+    <string name="notifications">Notifications</string>
+    <string name="there_are_currently_no_notifications">You have no notifications</string>
+    <string name="shared_documents">Shared Documents</string>
+    <string name="friends">Friends</string>
+    <string name="there_are_currently_no_shared_documents">There are currently no shared documents</string>
+    <string name="there_are_currently_no_shared_files">There are currently no shared files</string>
+    <string name="there_are_currently_no_friends">There are currently no friends</string>
+    <string name="most_recent">recent</string>
+    <string name="notes_bottom_nav">notes</string>
+    <string name="down_arrow">Down Arrow</string>
+    <string name="expand_collapse_folder">expand collapse folder</string>
+    <string name="folder_path_icon">folder path icon</string>
 
 
 </resources>

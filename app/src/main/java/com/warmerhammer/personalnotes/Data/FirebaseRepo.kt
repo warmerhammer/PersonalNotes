@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -81,7 +80,7 @@ class FirebaseRepo @Inject constructor(
                 }
                 trySend(notes)
             } catch (e: Throwable) {
-                Log.e(TAG, "Error retreiving notes from Firebase.")
+                Log.e(TAG, "Error retrieving notes from Firebase.")
             }
         }
 

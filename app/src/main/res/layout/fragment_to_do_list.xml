@@ -5,32 +5,32 @@
     android:id="@+id/todo_list_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?android:attr/actionBarSize"
     android:background="@color/app_yellow"
     android:paddingHorizontal="30dp"
-    android:paddingVertical="15dp">
+    android:paddingVertical="10dp">
 
     <LinearLayout
         android:id="@+id/unchecked_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/toDoListTitle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginVertical="5dp"
             android:layout_weight=".015"
             android:autofillHints="Enter title"
             android:fontFamily="@font/cabin_sketch"
             android:hint="@string/title"
+            android:imeOptions="actionDone"
             android:inputType="text"
             android:labelFor="@id/noteTitle"
             android:padding="15dp"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:imeOptions="actionDone"
             android:textStyle="bold"
             tools:text="Title" />
 
@@ -38,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".1"
+            android:layout_marginTop="18dp"
             android:background="@drawable/rectangle_border_pencil_pencil_grey"
             android:orientation="vertical">
 
@@ -45,25 +46,25 @@
                 android:id="@+id/todoList_text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/todo_items"
-                android:fontFamily="@font/cabin_sketch"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/holo_red"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/todo_list_rv"
-                android:textAlignment="textStart"
+                android:fontFamily="@font/cabin_sketch"
                 android:gravity="start"
-                />
+                android:text="@string/todo_items"
+                android:textAlignment="textStart"
+                android:textColor="@color/holo_red"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/todo_list_rv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/todo_list_rv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="25dp"
                 android:layout_marginTop="15dp"
+                android:paddingTop="25dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,19 +80,21 @@
             android:id="@+id/add_todo_item_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:layout_marginStart="2dp"
-            android:layout_weight=".05"
-            android:orientation="horizontal">
+            android:layout_weight=".04"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_gravity="top"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop=".5dp"
+                android:layout_marginEnd="10dp"
                 android:contentDescription="@string/add_todo_item"
-                android:scaleType="fitCenter"
+                android:scaleType="fitStart"
                 android:src="@drawable/plus_sketch" />
 
             <TextView
@@ -101,7 +104,7 @@
                 android:fontFamily="@font/cabin_sketch"
                 android:gravity="center_vertical"
                 android:text="@string/add_todo_item"
-                android:textColor="@color/pencil_black"
+                android:textColor="@color/pencil_grey"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -161,9 +164,9 @@
                         android:layout_marginStart="25dp"
                         android:fontFamily="@font/cabin_sketch"
                         android:paddingTop="15dp"
-                        android:textSize="20sp"
                         android:text="@string/checked_items"
-                        android:textColor="@color/holo_red" />
+                        android:textColor="@color/holo_red"
+                        android:textSize="20sp" />
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>

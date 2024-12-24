@@ -3,10 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/DocsListFragment">
+    app:startDestination="@id/docsListFragment">
+    <!--  Home Screen Fragment-->
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.warmerhammer.personalnotes.homescreen.HomeScreenFragment"
+        android:label="HomeScreenFragment"
+        tools:layout="@layout/home_screen_fragment" />
     <!--    Doc List Fragment-->
     <fragment
-        android:id="@+id/DocsListFragment"
+        android:id="@+id/docsListFragment"
         android:name="com.warmerhammer.personalnotes.DocsListFragment.DocsListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home">
@@ -20,7 +26,7 @@
             android:id="@+id/toHomeScreenFragment"
             app:destination="@id/homeScreenFragment" />
     </fragment>
-    <!--    <note fragment-->
+    <!--    Note Fragment-->
     <fragment
         android:id="@+id/noteFragment"
         android:name="com.warmerhammer.personalnotes.NoteFragment.NoteFragment"
@@ -54,11 +60,17 @@
         android:name="com.warmerhammer.personalnotes.FolderListFragment.FolderListFragment"
         android:label="FolderListFragment"
         tools:layout="@layout/fragment_folder_list" />
-    <!--    // Home Screen Fragment-->
+
     <fragment
-        android:id="@+id/homeScreenFragment"
-        android:name="com.warmerhammer.personalnotes.homescreen.HomeScreenFragment"
-        android:label="HomeScreenFragment"
-        tools:layout="@layout/home_screen_fragment"/>
+        android:id="@+id/sharedScreenFragment"
+        android:name="com.warmerhammer.personalnotes.SharedScreen.SharedScreenFragment"
+        android:label="SharedScreenFragment"
+        tools:layout="@layout/shared_screen_fragment" />
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.warmerhammer.personalnotes.MeFragment.MeFragment"
+        android:label="MeFragment"
+        tools:layout="@layout/fragment_me" />
 
 </navigation>

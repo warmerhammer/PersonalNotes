@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_home"
-        android:title="@string/home"
-        android:icon="@drawable/outline_home_24" />
-    <item android:id="@+id/action_files"
-        android:title="@string/folders"
-        android:icon="@drawable/outline_folder_24" />
-    <item android:id="@+id/action_recent"
-        android:title="@string/bottom_navigation_menu_add"
-        android:icon="@drawable/plus_sketch" />
-    <item android:id="@+id/action_shared"
-        android:title="@string/bottom_navigation_menu_shared"
-        android:icon="@drawable/outline_people_24" />
-    <item android:id="@+id/action_me"
-        android:title="@string/bottom_navigation_menu_me"
-        android:icon="@drawable/baseline_person_outline_24" />
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/outline_home_24_white"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/documents"
+        android:icon="@drawable/ic_baseline_edit_note_24"
+        android:title="@string/notes_bottom_nav" />
+
+    <item
+        android:id="@+id/action_shared"
+        android:icon="@drawable/outline_people_24"
+        android:title="@string/bottom_navigation_menu_shared" />
+    <item
+        android:id="@+id/action_me"
+        android:icon="@drawable/baseline_person_outline_24"
+        android:title="@string/bottom_navigation_menu_me" />
 </menu>

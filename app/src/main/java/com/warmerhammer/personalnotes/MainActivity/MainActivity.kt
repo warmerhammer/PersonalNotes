@@ -34,14 +34,17 @@ import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import javax.inject.Singleton
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.warmerhammer.personalnotes.CustomDialogFragment.CustomDialogFragment
 import com.warmerhammer.personalnotes.Data.DataClasses.Folder
 import com.warmerhammer.personalnotes.Data.DataClasses.Project
 import com.warmerhammer.personalnotes.SearchActivity.SearchActivity
+import java.io.Console
 
 @HiltAndroidApp
 class MainApplication : Application()
+
 
 @AndroidEntryPoint
 @Singleton
@@ -52,7 +55,6 @@ class MainActivity @Inject constructor(
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-
     private lateinit var animatedFab: AnimatedFab
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var drawerNavigation: DrawerNavigation
@@ -79,8 +81,6 @@ class MainActivity @Inject constructor(
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         navController = navHostFragment.navController
         setUpNavControllerWithDrawerLayout()
-        // instantiate animated FAB object
-        animatedFab = AnimatedFab(this, this)
         // observe changes to action bar title
         observeActionBarTitle()
         // load homePage folder
@@ -107,18 +107,45 @@ class MainActivity @Inject constructor(
 
         observeAllFolders()
         observeCheckedItems()
+        observeBottomBarNav()
+        observeCurrentDoc()
+        animatedFab = AnimatedFab(this, this)
+    }
 
-        // bottom nav bar
-        binding.mainActivityAppContainer
+    private fun observeCurrentDoc() {
+        viewModel.currentDoc.observe(this as LifecycleOwner) { project ->
+            if (project == null) {
+                val bundle = bundleOf("id" to 0, "folderId" to 1)
+                navController.navigate(R.id.toNoteFragment, bundle)
+            }
+        }
+    }
+
+    private fun observeBottomBarNav() {
+        val bottomNavBar =
+            binding.mainActivityAppContainer.findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavBar
             .findViewById<BottomNavigationView>(R.id.bottom_nav)
             .setOnItemSelectedListener {
                 when (it.title) {
                     "home" -> {
-                        Log.i(TAG, "${it.title}")
                         navController.navigate(R.id.homeScreenFragment)
                         true
                     }
-                    "folders" -> {
+
+                    "notes" -> {
+                        navController.navigate(R.id.docsListFragment)
+                        true
+                    }
+
+
+                    "shared" -> {
+                        navController.navigate(R.id.sharedScreenFragment)
+                        true
+                    }
+
+                    "me" -> {
+                        navController.navigate(R.id.meFragment)
                         true
                     }
 
@@ -191,7 +218,6 @@ class MainActivity @Inject constructor(
             this,
             accountIcon,
         ) { command ->
-            Log.i(TAG, "createAccountToolbarIcon() command :: $command")
             when (command) {
                 "Sign In" -> {
                     observeSignOnActivity.launchSignOn()
@@ -216,19 +242,22 @@ class MainActivity @Inject constructor(
     private fun observeActionBarTitle() {
         viewModel.actionBarTitle.observe(this as LifecycleOwner) { actionBarTitle ->
             toolbar.findViewById<TextView>(R.id.app_bar_title).text = actionBarTitle
-            // disable new project button if not in home fragment
-//            if (navController.currentDestination!!.label != "HomePage" && navController.currentDestination!!.label != "Project") {
-//                animatedFab.hide()
-//            } else {
-////                animatedFab.show()
-//            }
+            // AnimatedFab and action bar behavior
+            if (navController.currentBackStackEntry?.destination?.label == resources.getString(R.string.first_fragment_label)) {
+                animatedFab.show()
+                val bottomNav =
+                    binding.mainActivityAppContainer.findViewById<BottomNavigationView>(R.id.bottom_nav)
+                if (bottomNav.selectedItemId != R.id.documents) bottomNav.selectedItemId =
+                    R.id.documents
+
+            } else animatedFab.hide()
         }
     }
 
     private fun setUpNavControllerWithDrawerLayout() {
         drawerLayout = findViewById(R.id.drawer_layout)
 
-        drawerLayout.findViewById<Button>(R.id.add_project_button).setOnClickListener {
+        drawerLayout.findViewById<ImageButton>(R.id.add_project_button).setOnClickListener {
             CustomDialogFragment("New Folder") { projectName, isConfirm ->
                 if (isConfirm) {
                     viewModel.saveNewFolder(Folder(name = projectName))
@@ -290,7 +319,6 @@ class MainActivity @Inject constructor(
 
             navController.navigate(R.id.toToDoListFragment, bundle)
         }
-
     }
 
     // New Project

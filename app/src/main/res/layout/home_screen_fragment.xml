@@ -4,54 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="40dp"
-    >
-
-    <TextView
-        android:id="@+id/recent_documents_rv_title"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="@string/recent_documents"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/recent_documents_rv"
-        app:layout_constraintEnd_toStartOf="@id/see_all_docs_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1"
-        app:layout_constraintHorizontal_weight="5"
-        android:textSize="18sp"
-        android:fontFamily="@font/cabin_sketch"
-        />
-
-    <Button
-        android:id="@+id/see_all_docs_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@id/recent_documents_rv_title"
-        app:layout_constraintEnd_toEndOf="@id/recent_documents_rv"
-        app:layout_constraintTop_toTopOf="@id/recent_documents_rv_title"
-        app:layout_constraintBottom_toTopOf="@id/recent_documents_rv"
-        app:layout_constraintHorizontal_weight="5"
-        android:text="@string/see_all"
-        android:textColor="#0000FF"
-        android:background="@android:color/transparent"
-        android:fontFamily="@font/cabin_sketch"
-        />
+    android:layout_marginTop="?actionBarSize"
+    android:padding="20dp">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recent_documents_rv"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recent_files_cl"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/shared_files_cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="4">
+
+        <TextView
+            android:id="@+id/recent_documents_rv_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:gravity="center_vertical"
+            android:text="Recently Used"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/recent_documents_rv"
+            app:layout_constraintEnd_toStartOf="@id/see_all_docs_button"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/see_all_docs_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/see_all"
+            android:textAlignment="textEnd"
+            android:textColor="#0000FF"
+            app:layout_constraintBottom_toTopOf="@id/recent_documents_rv"
+            app:layout_constraintEnd_toEndOf="@id/recent_documents_rv"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@id/recent_documents_rv_title"
+            app:layout_constraintTop_toTopOf="@id/recent_documents_rv_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_documents_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recent_documents_rv_title"
+            app:layout_constraintVertical_weight="5"
+            tools:listitem="@layout/recent_documents_rv_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shared_files_cl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recent_documents_rv_title"
-        app:layout_constraintVertical_weight="9"
-        tools:listitem="@layout/recent_documents_rv_item" />
+        app:layout_constraintTop_toBottomOf="@id/recent_files_cl"
+        app:layout_constraintVertical_weight="2">
+
+        <TextView
+            android:id="@+id/shared_files_rv_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/cabin_sketch"
+            android:gravity="center_vertical"
+            android:text="@string/notifications"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/shared_files_rv_frame"
+            app:layout_constraintEnd_toStartOf="@id/see_all_shared_files_button"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <Button
+            android:id="@+id/see_all_shared_files_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/cabin_sketch"
+            android:text="@string/see_all"
+            android:textAlignment="textEnd"
+            android:textColor="#0000FF"
+            app:layout_constraintBottom_toTopOf="@id/shared_files_rv_frame"
+            app:layout_constraintEnd_toEndOf="@id/shared_files_rv_frame"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@id/shared_files_rv_title"
+            app:layout_constraintTop_toTopOf="@id/shared_files_rv_title"
+            app:layout_constraintVertical_weight=".5" />
+
+
+        <FrameLayout
+            android:id="@+id/shared_files_rv_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shared_files_rv_title"
+            app:layout_constraintVertical_weight="4">
+
+            <TextView
+                android:id="@+id/no_shared_files_message"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rectangle_border_pencil_pencil_grey"
+                android:fontFamily="@font/cabin_sketch"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:text="@string/there_are_currently_no_notifications"
+                android:textColor="@color/pencil_black"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintVertical_weight="4" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shared_files_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recent_documents_rv_item" />
+
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

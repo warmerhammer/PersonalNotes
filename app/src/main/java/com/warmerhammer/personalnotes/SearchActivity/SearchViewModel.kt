@@ -1,11 +1,16 @@
 package com.warmerhammer.personalnotes.SearchActivity
 
+import android.content.ContentResolver
+import android.os.Build
 import android.util.Log
-import androidx.lifecycle.LifecycleOwner
+import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.warmerhammer.personalnotes.Data.DataClasses.User
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,19 +19,18 @@ class SearchViewModel @Inject constructor(
     private val repo: SearchActivityRepo
 ) : ViewModel() {
 
-    fun searchUser(query: String) {
-        when (repo.initConstructTrie) {
-            true -> {
-                viewModelScope.launch {
-                    repo.constructTrie().collect { success ->
-                        Log.i("SearchViewModel.kt", "success :: $success")
-                        repo.initConstructTrie = false
-                        repo.searchUser(query)
-                    }
+    private val _suggestions = MutableLiveData<List<User>>()
+    val suggestions: LiveData<List<User>> = _suggestions
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun search(query: String?) {
+        viewModelScope.launch {
+            query?.let {
+                repo.searchFriends(it).collectLatest { users ->
+                    _suggestions.postValue(users)
                 }
             }
-            false -> repo.searchUser(query)
         }
-    }
 
+    }
 }

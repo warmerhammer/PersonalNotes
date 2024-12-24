@@ -9,6 +9,8 @@ data class User(
     var id: Int = 0,
     var email: String? = null,
     var name: String? = null,
+    var userName: String? = null,
+    val lowercaseName: String? = userName?.lowercase(),
     var photoUrl: String? = null,
 )
 
